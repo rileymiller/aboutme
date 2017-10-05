@@ -1,0 +1,303 @@
+/*
+Color Palette: 
+#4ABDAC - blue
+#FC4A1A - orange 
+#F7B733 - yellow
+#DFDCE3 - clean white
+*/
+
+body {
+    /*background-image: url("images/south_table.jpg");*/
+    background-repeat: repeat-y;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+div#gameOver {
+    position: fixed;
+    display: inline-block;
+    z-index: 99 !important;
+    min-width: 500px;
+    min-height: 200px;
+    top: 30%;
+    left: 40%;
+    visibility: hidden;
+    background-color: #FFF;
+    border-radius: 20px;
+    border: 1px solid #FC4A1A;
+    color: #FC4A1A;
+}
+
+div#game_stats {
+    text-align: center;
+    font-size: 18px;
+}
+
+div#quiz {
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+aside#history {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 650px;
+    width: 30%;
+    overflow: visible;
+    text-align: center;
+    border-right: 2px solid #FC4A1A;
+}
+
+
+div#content {
+    text-align: center;
+    display: inline-block;
+    height: 100%;
+    margin: auto;
+    overflow: visible;
+    padding: 30px;
+    width: 64%;
+}
+
+div#content h2{
+    color: #FC4A1A;
+    margin: 0;
+}
+div#answer {
+    position: relative;
+}
+
+div#question {
+    font-size: 21px;
+}
+div#answer button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background-color: #FC4A1A;
+    border: 1px #F7B733 solid;
+    padding: 5px;
+    color: #F7B733;
+}
+div#answer form {
+    position: absolute;
+    left: 0;
+}
+div#questions {
+    margin-top: 30px; 
+    display: block;
+    width: 100%;
+}
+
+div#questions div{
+    display: inline;
+    width: 24%;
+    margin: 10px;
+    padding: 15px;
+    background-color: #4ABDAC;
+    border-radius: 5px;
+    color: #FC4A1A;
+    font-size: 19px;
+    border: 2px solid #FC4A1A;
+    
+}
+
+div#high_score {
+    display: block;
+    font-size: 21px;
+    color: #FC4A1A;
+    margin-top: 1.5em;
+    text-align: left;
+}
+
+button#checkAnswer{
+    border-radius: 5px;
+}
+
+div#questions div.hover {
+    background-color: #FC4A1A;
+    border: 2px solid #4ABDAC;
+    color: #4ABDAC;
+}
+
+div#content div#question, div#content div#answer{
+    display: inline-block;
+    width: 60%;
+    margin: auto;
+    color: #FC4A1A;
+    text-align: center;
+    border: 2px solid #FC4A1A;
+    background-color: #4ABDAC;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 30px;
+    min-height: 80px;
+    height: 80px;
+}
+
+div#history_head {
+    display: inline-block;
+    width: 60%;
+    margin: auto;
+    color: #FC4A1A;
+    text-align: center;
+    border: 2px solid #FC4A1A;
+    background-color: #4ABDAC;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 30px;
+    min-height: 80px;
+   
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /*
+    margin-left: auto;
+    margin-right: auto;*/
+    text-align: center;
+}
+
+li {
+    display: inline;
+}
+
+li img {
+    max-width: 88px;
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: green;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:active {
+    color: red;
+}
+
+.navBar {
+    overflow: hidden;
+    font-family: Arial;
+}
+
+.navBar a,
+.navBar p {
+    display: inline-block;
+    font-size: 1em;
+    color: #FC4A1A;
+    border-radius: .5em;
+    border: 2px solid #FC4A1A;
+    margin: 0em .3em;
+    text-align: center;
+    padding: 1em 1.4em;
+    text-decoration: none;
+}
+
+.smallFooter {
+    visibility: hidden;
+}
+
+@media screen and (max-width: 480px) {
+    .navBar a,
+    .navBar button {
+        max-width: 100%;
+        float: none;
+        text-align: center;
+        display: block;
+    }
+
+    .dropdown {
+        max-width: 100%;
+        min-width: 100%;
+        display: block;
+    }
+
+    .dropdown .dropbtn {
+        display: inline-block;
+        width: 98%;
+    }
+
+    .dropdown-content {
+        max-width: 100%;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.navBar p {
+    background-color: #4ABDAC;
+}
+
+
+.dropdown {
+    float: none;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.dropdown .dropbtn {
+    font-size: 1em;
+    border-radius: .5em;
+    border: 2px solid #FC4A1A;
+    outline: none;
+    color: #FC4A1A;
+    padding: 1em 1.4em;
+    margin: 0em .3em;
+    background-color: inherit;
+    /*display: inline-block;*/
+}
+
+.navBar a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #FC4A1A;
+    color: white;
+    border-radius: .5em;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: #FC4A1A;
+    padding: .8em 1.4em;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #FC4A1A;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+h1 {
+    color: #FC4A1A;
+    text-align: center;
+}

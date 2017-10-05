@@ -1,0 +1,23 @@
+#turtle_left {
+	float: left;
+	border: 2px inset blue;
+}
+
+.div3 {
+	background-color: yellow;
+	overflow: auto;
+}
+
+#cat_right {
+	float: right;
+	border: 2px inset black;
+}
+
+.div4 {
+	background-color: #FF00CE;
+	overflow: auto;
+}
+
+.clear-it{
+	clear: left;
+}

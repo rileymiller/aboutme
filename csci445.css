@@ -1,0 +1,291 @@
+/*
+Color Palette: 
+#4ABDAC - blue
+#FC4A1A - orange 
+#F7B733 - yellow
+#DFDCE3 - clean white
+*/
+
+body {
+    /*background-image: url("images/south_table.jpg");*/
+    background-repeat: repeat-y;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+
+
+
+table {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /*
+    margin-left: auto;
+    margin-right: auto;*/
+    text-align: center;
+}
+
+li {
+    display: inline;
+}
+li img {
+    max-width: 88px;
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: green;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:active {
+    color: red;
+}
+
+h1#intro {
+    text-align: center;
+}
+
+p#introP {
+    text-align: center;
+}
+
+.navBar {
+    overflow: hidden;
+    font-family: Arial;
+}
+
+.navBar a, .navBar p {
+    display: inline-block;
+    font-size: 1em;
+    color: #FC4A1A;
+    border-radius: .5em;
+    border: 2px solid #FC4A1A;
+    margin: 0em .3em;
+    text-align: center;
+    padding: 1em 1.4em;
+    text-decoration: none;
+}
+
+.smallFooter {
+    visibility: hidden;
+}
+
+@media screen and (max-width: 480px) {
+    .navBar a, .navBar button {
+        max-width: 100%;
+        float: none;
+        text-align: center;
+        display: block;
+        
+    }
+
+    .dropdown {
+        max-width: 100%;
+        min-width: 100%;
+        display: block;
+
+
+    }
+
+    .dropdown .dropbtn {
+        display: inline-block;
+        width: 98%;
+    }
+
+    .dropdown-content {
+        max-width: 100%;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .flip-container {
+        visibility: hidden;
+        display: none;
+    }
+
+    .smallFooter {
+        float: left;
+        width: 85%;
+        font-size: 1em;
+        color: #FC4A1A;
+        border-radius: .5em;
+        border: 2px solid #FC4A1A;
+        text-align: center;
+        padding: 1em 1.4em;
+        visibility: visible;
+        text-decoration: none;
+        /*margin-left: auto;
+        margin-right: auto;*/
+        display: inline;
+    }
+
+    .smallFooter address {
+        width: 100%;
+    }
+}
+
+.navBar p {
+    background-color: #4ABDAC;
+  
+}
+
+
+.dropdown {
+    float: none;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.dropdown .dropbtn {
+    font-size: 1em;
+    border-radius: .5em;
+    border: 2px solid #FC4A1A;
+    outline: none;
+    color: #FC4A1A;
+    padding: 1em 1.4em;
+    margin: 0em .3em;
+    background-color: inherit;
+    /*display: inline-block;*/
+}
+
+.navBar a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #FC4A1A;
+    color: white;
+    border-radius: .5em;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: #FC4A1A;
+    padding: .8em 1.4em;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #FC4A1A;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+div.introtran {
+    padding: 1.4em 1.8em;
+    background-color: #4ABDAC;
+    color: #FC4A1A;
+    border-radius: .5em;
+    border: 2px solid #FC4A1A;
+    width: 25%;
+    display: inline-block;
+    text-align: center !important;
+
+    -webkit-transition: width 2s linear;
+}
+
+div.introtran:hover {
+    width: 50%;
+}
+
+
+
+/* entire container, keeps perspective */
+
+.flip-container {
+    perspective: 1000px;
+}
+
+
+/* flip the pane when hovered */
+
+.flip-container:hover .mailrot,
+.flip-container.hover .mailrot {
+    transform: rotateY(180deg);
+}
+
+.flip-container,
+.front,
+.back {
+    width: 320px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* flip speed goes here */
+
+.mailrot {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+
+/* hide back of pane during swap */
+
+.front,
+.back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: .5em;
+    border: 2px solid #FC4A1A;
+    outline: none;
+    color: #FC4A1A;
+    text-align: center;
+    padding: 1.4em 1.8em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* front pane, placed above back */
+
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+
+/* back, initially hidden pane */
+
+.back {
+    transform: rotateY(180deg);
+}

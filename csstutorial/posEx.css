@@ -1,0 +1,45 @@
+#sidebar {
+	position: fixed;
+	background-color: blue;
+	border: 2px solid black;
+	color: white;
+}
+
+h1 {
+	position: relative;
+	left: 30px;
+}
+
+.important {
+	position: absolute;
+	top: 25px;
+	right: 50px;
+	background-color: yellow;
+	border: 2px solid black;
+	max-width: 200px;
+	max-height: 100px;
+	margin: auto;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.not-important {
+	position: relative;
+	overflow: hidden;
+	background-color: red;
+	border: 2px solid black;
+	max-height: 100px;
+	max-width: 100px;
+	top: 45px;
+}
+
+.more-important {
+	position: relative;
+	z-index: -1;
+	background-color: green;
+	max-width: 150px;
+	left: 50px;
+	top: 15px;
+	max-height: 180px;
+	font-size: 18px;
+}
