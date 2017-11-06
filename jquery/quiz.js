@@ -193,12 +193,6 @@ function getRadio() {
 $('div#gameOver').dblclick(function() {
     console.log('gameover double clicked, animation triggered');
 //insert animation here
-    /*
-    var div = $('div#gameOver');
-    div.animate({height: '600px', opacity: '.4'}, 'slow');
-    div.animate({width: '600px', opacity: '.8'}, 'slow');
-    div.animate({height: '200px', opacity: '.4'}, 'slow');
-    div.animate({width: '200px', opacity: '.8'}, 'slow');*/
     var div = $('div#gameOver');
     div.animate({
         opacity: 0.1
