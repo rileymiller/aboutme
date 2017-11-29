@@ -239,8 +239,10 @@ a:active {
     }
 }
 
-.navBar p {
+.navBar .current {
     background-color: #4ABDAC;
+    pointer-events: none;
+   cursor: default;
 }
 
 

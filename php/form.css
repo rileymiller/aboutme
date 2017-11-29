@@ -1,3 +1,69 @@
+.error {
+	color: red;
+}
+
+img#item_pic {
+	max-width: 400px;
+	max-height: 400px;
+	text-align: center;
+}
+
+.receipt {
+	margin: auto;
+	width: 50%;
+}
+
+.receipt #phone {
+	text-transform: capitalize;
+}
+
+.ledger {
+    margin: auto;
+    width: 50%;
+    border: 1px solid #4ABDAC;
+    padding: 1em;
+    border-radius: .8em;
+}
+a:link {
+    text-decoration: none;
+    color: #4ABDAC;
+}
+table#totals {
+    margin: auto;
+    width: 50%;
+    border: 1px solid #4ABDAC;
+    padding: 1em;
+    border-radius: .8em;
+    color: #FC4A1A;
+}
+
+.ledger h1 {
+    text-align: center;
+    color: #FC4A1A;
+}
+
+.ledger h2, h4 {
+    color: #4ABDAC;
+}
+
+#table_header {
+    text-align: center;
+    color: #FC4A1A;
+}
+.ledger p {
+    color: #FC4A1A;
+}
+
+.ledger #cap {
+    text-transform: capitalize;
+}
+
+/*#item_cost {
+	display: none;
+}
+#item_pic {
+	display: none;
+}*/
 /*
 Color Palette: 
 #4ABDAC - blue
@@ -22,7 +88,7 @@ ul {
     /*
     margin-left: auto;
     margin-right: auto;*/
-    text-align: center;
+    
 }
 
 li {
@@ -166,19 +232,8 @@ a:active {
 }
 
 h1{
-	color: #FC4A1A;
-	text-align: center;
+	color: #4ABDAC;
+	
 }
 
 
-#canvas {
-	display: block;
-	border: solid 1px #DFDCE3;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 1%;
-}
-
-img#mario {
-	visibility: hidden;
-}
