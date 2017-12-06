@@ -66,6 +66,8 @@ body {
     font-size: 16px;
     overflow-x: hidden;
 }
+
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -76,8 +78,29 @@ ul {
     
 }
 
-li {
-    display: inline;
+input#first, input#last, input#email {
+    min-width: 250px;
+}
+div#first_box, div#last_box, div#email_box {
+    max-width: 250px;
+
+   /* border: 1px solid black;*/
+}
+
+div#first_box li, div#last_box li, div#email_box li {
+    /*text-align: right;*/
+    padding: 3px;
+}
+
+div#first_box ul, div#last_box ul, div#email_box ul{
+
+    border: 1px solid #ECEFF1;
+    border-radius: 5px;
+}
+div#first_box li:hover,div#last_box li:hover, div#email_box li:hover {
+   /* display: inline;*/
+   cursor: pointer;
+   background-color: #ECEFF1;
 }
 li img {
     max-width: 88px;

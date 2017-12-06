@@ -23,5 +23,19 @@
                     <a href="<?php echo $PATH;?>/php/vieworders.php">View Orders</a>
                 </div>
             </div>
+            <div class="dropdown">
+                <button class="dropbtn">MySQL</button>
+                <div class="dropdown-content">
+                    <a href="<?php echo $PATH;?>/mysql/io.php">Shop</a>
+                    <a href="<?php echo $PATH;?>/mysql/vieworders.php">All Orders</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Ajax</button>
+                <div class="dropdown-content">
+                    <a href="<?php echo $PATH;?>/ajax/form.php">Shop</a>
+                    <a href="<?php echo $PATH;?>/ajax/vieworders.php">All Orders</a>
+                </div>
+            </div>
         </div>
     </section>

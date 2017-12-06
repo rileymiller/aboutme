@@ -24,7 +24,18 @@ img#item_pic {
     padding: 1em;
     border-radius: .8em;
 }
-
+a:link {
+    text-decoration: none;
+    color: #4ABDAC;
+}
+table#totals {
+    margin: auto;
+    width: 50%;
+    border: 1px solid #4ABDAC;
+    padding: 1em;
+    border-radius: .8em;
+    color: #FC4A1A;
+}
 
 .ledger h1 {
     text-align: center;
@@ -35,6 +46,10 @@ img#item_pic {
     color: #4ABDAC;
 }
 
+#table_header {
+    text-align: center;
+    color: #FC4A1A;
+}
 .ledger p {
     color: #FC4A1A;
 }

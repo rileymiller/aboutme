@@ -1,14 +1,14 @@
 <?php
   session_start();
 ?>
-<?php $PATH = "http://luna.mines.edu/rileymiller/website"; ?>
+
 <link rel="stylesheet" type="text/css" href="form.css">
 
 <?php 
         $current = "form";
     ?>
     <?php include '../php/templateHeader.php';?>
-
+    
 
 
 

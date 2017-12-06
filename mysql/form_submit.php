@@ -1,14 +1,14 @@
 <?php
   session_start();
 ?>
-
+<?php $PATH = "http://luna.mines.edu/rileymiller/website"; ?>
 <link rel="stylesheet" type="text/css" href="form.css">
 
 <?php 
         $current = "form";
     ?>
     <?php include '../php/templateHeader.php';?>
-    
+
 
 
 
@@ -36,35 +36,5 @@ if($_SESSION['donate'] == "yes") {
 }
 echo "<p>Submitted at: " . $_SESSION['date'] . "</p>";
 echo "</div>"
-
-?>
-
-<?php
-
-$total = $don = "";
-$total = floatval((($_SESSION['cost'] * $_SESSION['quantity']) * 1.07));
-if($_SESSION['donate'] == "yes") {
-  $don = floatval((ceil($total / 100) * 100) - $total);
-  $total = floatval(ceil($total / 100) * 100);
-} 
-
-/*
-$line = $_SESSION['first'] . " " . $_SESSION['last'] . "," . $_SESSION['date'] . "," . $_SESSION["phones"] . "," . $_SESSION['quantity'] . "," . $total;
-echo $line;
-
-
-/*
-$myfile = fopen("orders.csv", "a+") or die("Unable to open file!");
-
-fwrite($myfile, "\n". $line);
-fclose($myfile);*/
-
-$order = array (
-	$_SESSION['first'], $_SESSION['last'], $_SESSION['date'], $_SESSION['phones'], $_SESSION['quantity'], $total
-);
-
-$file = fopen("orders.csv", "a") or die("Unable to open file");
-fputcsv($file, $order);
-fclose($file);
 
 ?>

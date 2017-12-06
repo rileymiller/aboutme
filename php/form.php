@@ -1,7 +1,6 @@
 <?php 
   session_start();
  ?>
- <?php $PATH = "http://luna.mines.edu/rileymiller/website"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -15,8 +14,8 @@
 <?php 
         $current = "form";
     ?>
-    <<?php include '../php/templateHeader.php';?>
-
+    <?php include '../php/templateHeader.php';?>
+    
 <hr />
 <?php
 // define variables and set to empty values
@@ -118,12 +117,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<p><span class="error">* required field.</span></p>
 	<fieldset>
 		<legend>Personal Info:</legend>
-		First: <input type="text" name="first" value=""><span class="error">* <?php echo $firstErr;?></span> Last: <input type="text" name="last" value=""><span class="error">* <?php echo $lastErr;?></span> <br />
-		Email: <input type="email" name="email" value=""><span class="error">* <?php echo $emailErr;?></span> <br />
+		First: <input type="text" name="first" value="<?php echo $_POST['first'];?>"><span class="error">* <?php echo $firstErr;?></span> Last: <input type="text" name="last" value="<?php echo $_POST['last'];?>"><span class="error">* <?php echo $lastErr;?></span> <br />
+		Email: <input type="email" name="email" value="<?php echo $_POST['email'];?>"><span class="error">* <?php echo $emailErr;?></span> <br />
 	</fieldset>
 	<fieldset>
 		<legend>Item(s)</legend>
-		<select id="items" name="phones" value="">
+		<select id="items" name="phones" value="<?php echo $_POST['phones'];?>">
 			<option value=""></option>
 			<option value="iphone">iPhone</option>
 			<option value="galaxy">Galaxy</option>
@@ -131,9 +130,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		</select><span class="error">* <?php echo $selectErr;?></span>
 		<h3 id="item_cost"></h3>
 		<img id="item_pic" src="" alt="Image for items">
-		<input type="hidden" id="cost_val" name="cost" value="">
+		<input type="hidden" id="cost_val" name="cost" value="<?php echo $_POST['cost'];?>">
 		<br />
-		Quantity: <input type="number" name="quantity" min="1" value=""> <span class="error">* <?php echo $quantityErr;?></span>
+		Quantity: <input type="number" name="quantity" min="1" value="<?php echo $_POST['quantity'];?>"> <span class="error">* <?php echo $quantityErr;?></span>
 		<br />
 		Donate: <input type="radio" name="donate" <?php if (isset($_POST['donate']) && $_POST['donate']=="yes") echo "checked";?> value="yes"> Yes <input type="radio" name="donate" <?php if (isset($_POST['donate']) && $_POST['donate']=="no") echo "checked";?> value="no"> No<span class="error">* <?php echo $donateErr;?></span>
 		<br />
@@ -179,6 +178,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </script>";
 /*echo "<script> alert('you suck');</script>";*/
  ?>
- 
+ <?php include 'php/form_submit.php';?>
  </body>
  </html>

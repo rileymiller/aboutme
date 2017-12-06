@@ -1,6 +1,7 @@
 <?php 
   session_start();
  ?>
+ <?php $PATH = "http://luna.mines.edu/rileymiller/website"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -13,7 +14,7 @@
 <body>
 <?php 
         $current = "ioform";
-    ?>
+?>
     <?php include '../php/templateHeader.php';?>
 
 <hr />
@@ -117,12 +118,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<p><span class="error">* required field.</span></p>
 	<fieldset>
 		<legend>Personal Info:</legend>
-		First: <input type="text" name="first" value="<?php echo $_POST['first'];?>"><span class="error">* <?php echo $firstErr;?></span> Last: <input type="text" name="last" value="<?php echo $_POST['last'];?>"><span class="error">* <?php echo $lastErr;?></span> <br />
-		Email: <input type="email" name="email" value="<?php echo $_POST['email'];?>"><span class="error">* <?php echo $emailErr;?></span> <br />
+		First: <input type="text" name="first" value=""><span class="error">* <?php echo $firstErr;?></span> Last: <input type="text" name="last" value=""><span class="error">* <?php echo $lastErr;?></span> <br />
+		Email: <input type="email" name="email" value=""><span class="error">* <?php echo $emailErr;?></span> <br />
 	</fieldset>
 	<fieldset>
 		<legend>Item(s)</legend>
-		<select id="items" name="phones" value="<?php echo $_POST['phones'];?>">
+		<select id="items" name="phones" value="">
 			<option id="blank" value=""></option>
 			<!--<option value="iphone">iPhone</option>
 			<option value="galaxy">Galaxy</option>
@@ -130,9 +131,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		</select><span class="error">* <?php echo $selectErr;?></span>
 		<h3 id="item_cost"></h3>
 		<img id="item_pic" alt="Image for items" src="">
-		<input type="hidden" id="cost_val" name="cost" value="<?php echo $_POST['cost'];?>">
+		<input type="hidden" id="cost_val" name="cost" value="">
 		<br />
-		Quantity: <input type="number" name="quantity" min="1" value="<?php echo $_POST['quantity'];?>"> <span class="error">* <?php echo $quantityErr;?></span>
+		Quantity: <input type="number" name="quantity" min="1" value=""> <span class="error">* <?php echo $quantityErr;?></span>
 		<br />
 		Donate: <input type="radio" name="donate" <?php if (isset($_POST['donate']) && $_POST['donate']=="yes") echo "checked";?> value="yes"> Yes <input type="radio" name="donate" <?php if (isset($_POST['donate']) && $_POST['donate']=="no") echo "checked";?> value="no"> No<span class="error">* <?php echo $donateErr;?></span>
 		<br />
@@ -156,53 +157,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 /*echo "<script> alert('you suck');</script>";*/
  ?>
 
- <?php
-  $itemList = fopen("itemlist.csv", "r") or die("Unable to open file");
-  fgets($itemList);
+
+<?php 
+  require 'connection.php';
+  $conn = Connect();
+
+  $sql = "SELECT name, value, price, quantity, image from PRODUCT";
+  $result = $conn->query($sql);
+
+  if($result->num_rows > 0) {
+
   echo "<script>";
-  while(!feof($itemList)){
-    $line = fgets($itemList);
-    $text = str_getcsv($line, ',');
-    //echo "text: " . $text[0] . " val: " . $text[1] . " price: " . $text[2] . "<br />";
-    if(array(null) !== $text){
-    echo "$('select#items')";
-    echo ".append($(\"<option></option>\")";
-    echo ".attr(\"value\",\"" . $text[1] . "\")";
-    echo ".text(\"" . $text[0] . "\"));"; 
-    }
+  while($row = $result->fetch_assoc()){
+
+    $quant = (int)$row["quantity"];
+    echo "console.log(" . $quant . ");";
+    if($quant > 0){
+      echo "$('select#items')";
+      echo ".append($(\"<option></option>\")";
+      echo ".attr(\"value\",\"" . $row["value"] . "\")";
+      echo ".text(\"" . $row["name"] . "\"));"; 
+     } else {
+        echo "$('select#items')";
+        echo ".append($(\"<option></option>\")";
+        echo ".prop('disabled', true)";
+        echo ".text(\"" . $row["name"] . " - Sold Out\"));";
+      }
   }
   echo "</script>";
-  fclose($itemList);
 
-  $itemHandle = fopen("itemlist.csv", "r") or die("Unable to open file");
-  fgets($itemHandle);
+ 
+  } else {
+    echo "0 results";
+  }
+
+  $populate_select = $conn->query($sql);
+
+  if($populate_select->num_rows > 0){
   echo "<script>";
   echo "$('#items').on('change', function() {";
-  while(!feof($itemHandle)){
-    $line = fgets($itemHandle);
-    $text = str_getcsv($line, ',');
-    //echo "text: " . $text[0] . " val: " . $text[1] . " price: " . $text[2] . "<br />";
-    if(array(null) !== $text){
-    /*echo "$('select#items')";
-    echo ".append($(\"<option></option>\")";
-    echo ".attr(\"value\",\"" . $text[1] . "\")";
-    echo ".text(\"" . $text[0] . "\"));"; */
-    echo "if($(this).val() == '" . $text[1] . "'){
-      $('#item_pic').attr('src', '../images/" . $text[1] . ".png');
-      $('#item_cost').text('" . $text[0] . ": $" . $text[2] . "');
-      $('#cost_val').val('" . $text[2] . "');
-      $('#item_pic').attr('display', 'block');
-      $('#item_cost').attr('display', 'block');
-    }";
+  
+  while($row = $populate_select->fetch_assoc()){
+      #echo "<h1> There's stuff here</h1>";
+      #echo "name: " . $row["name"] . " value: " . $row["value"] . " price: " . $row["price"] . " quantity: " . $row["quantity"] . " image: " . $row["image"] . "<br />";
+      
+
+        echo "if($(this).val() == '" . $row["value"] . "'){
+        $('#item_pic').attr('src', '../images/" . $row["value"] . ".png');
+        $('#item_cost').text('" . $row["name"] . ": $" . $row["price"] . "');
+        $('#cost_val').val('" . $row["price"] . "');
+        $('#item_pic').attr('display', 'block');
+        $('#item_cost').attr('display', 'block');
+        }";
+     
     }
+    echo "});";
+    echo "</script>";
+  } else {
+    echo "0 results";
   }
-  echo "});";
-  echo "</script>";
-  fclose($itemList);
 
-
+  $conn->close();
 
 ?>
- <?php include 'php/form_submit.php';?>
  </body>
  </html>
