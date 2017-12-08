@@ -236,11 +236,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $("#first").css("background","#FFF");
     },
     success: function(data){
-      console.log("data returned successfully");
-      console.log(data);
+      //console.log("data returned successfully");
+      //console.log(data);
       $("#first_box").show();
       $("#first_box").html(data);
       $("#first").css("background","#FFF");
+
+      if($("#first_box ul").has("li").length < 1){
+        //console.log('it dead');
+        $("#first_box ul").append("<li>no suggestions</li>");
+      }
+
     },
     error: function() {
       console.log("Query didn't find anything");
@@ -261,6 +267,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $("#last_box").show();
       $("#last_box").html(data);
       $("#last").css("background","#FFF");
+      if($("#last_box ul").has("li").length < 1){
+        //console.log('it dead');
+        $("#last_box ul").append("<li>no suggestions</li>");
+      }
     }
     });
   });
@@ -278,6 +288,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $("#email_box").show();
       $("#email_box").html(data);
       $("#email").css("background","#FFF");
+      if($("#email_box ul").has("li").length < 1){
+        //console.log('it dead');
+        $("#email_box ul").append("<li>no suggestions</li>");
+      }
     }
     });
   });
